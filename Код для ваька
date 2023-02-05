@@ -1,0 +1,25 @@
+poezdkiMASS = []  # Массив поездок
+codes = []  # Массив кодов
+bablo = []  # Массив бабок
+c = ''
+u = ''
+k = int(input())  # количество друзей в компании
+n = int(input())  # количество поездок
+for x in range(n):
+    a = str(input())
+    poezdkiMASS.append(a)
+for x in poezdkiMASS:
+    for y in range(len(x)):
+        zhaba = x[y]
+        if zhaba == "(":
+            for p in range(1, 4):
+                u = u + x[y + p]
+            codes.append(u)
+            u = ''
+        if zhaba.isdigit():
+            c = c + zhaba
+    bablo.append(int(c) // k)
+    c = ''
+for x in range(len(bablo)):
+    print(codes[x*2] + '-' +codes[x*2+1])
+    print(bablo[x])
